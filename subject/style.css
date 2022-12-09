@@ -35,6 +35,7 @@ section {
   font-size: 18px;
   font-weight: 400;
   font-family: var(--notoSans);
+  padding: 10px !important;
 }
 .new-sub-heading {
   padding: 10px !important;
@@ -52,4 +53,10 @@ section {
     #c6426e,
     #642b73
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.accordion-body img {
+  margin: 0 auto;
+  max-width: 600px;
+  max-height: 100vh;
+  min-height: 300px;
 }
