@@ -91,6 +91,17 @@
               <div class="badge"><p>Questions&Answers</p></div>
             </div>
           </div>
+          <div class="box">
+            <img src="images/math.png" alt="english text written on a board" />
+            <div class="inside-box center">
+              <div class="book-preview center">
+                <img src="images/12th-pre.jpeg" alt="" />
+              </div>
+              <h3 class="title">Important questions MATH</h3>
+              <small>12th</small>
+              <div class="badge"><p>Questions&Answers</p></div>
+            </div>
+          </div>
         </div>
       </section>
       <div class="line"></div>
@@ -101,7 +112,7 @@
             Learning Channels
           </h2>
         </div>
-        <div class="box-holder">
+        <div class="box-holder" id="box-holder">
           <div class="channel">
             <p class="channel-name">1. physics wallah</p>
             <img src="images/physics-wallah-yt.jpg" alt="" />
@@ -338,6 +349,35 @@
       //     console.error("Error: ", jqXHR.responseText);
       //   },
       // });
+      const slider = document.querySelectorAll(".box-holder");
+      slider.forEach((element) => {
+        let mouseDown = false;
+        let startX, scrollLeft;
+
+        let startDragging = function (e) {
+          mouseDown = true;
+          startX = e.pageX - element.offsetLeft;
+          scrollLeft = element.scrollLeft;
+        };
+        let stopDragging = function (event) {
+          mouseDown = false;
+        };
+
+        element.addEventListener("mousemove", (e) => {
+          e.preventDefault();
+          if (!mouseDown) {
+            return;
+          }
+          const x = e.pageX - element.offsetLeft;
+          const scroll = x - startX;
+          element.scrollLeft = scrollLeft - scroll;
+        });
+        element.addEventListener("mousedown", startDragging, false);
+        element.addEventListener("mouseup", stopDragging, false);
+        element.addEventListener("mouseleave", stopDragging, false);
+      });
+
+      // Add the event listeners
     </script>
   </body>
 </html>
