@@ -21,7 +21,7 @@ English.map((e) => {
         if (answer.split(".").includes(e)) {
           return `<img src="${answer}">`;
         } else {
-          answer;
+          return answer;
         }
       })}</div>
     </div>
