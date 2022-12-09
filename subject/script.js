@@ -8,6 +8,7 @@ English.map((e) => {
     let question = e.data[i].question;
     let answer = e.data[i].answer;
     let id = question.replace(/\W/g, "");
+
     finalHtml += `<div class="accordion accordion-flush" id="accordionFlushExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-${id}">
@@ -17,13 +18,13 @@ English.map((e) => {
       </button>
     </h2>
     <div id="flush-${id}-collapse" class="accordion-collapse collapse" aria-labelledby="flush-${id}" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">${extentions.map((e) => {
-        if (answer.split(".").includes(e)) {
-          return `<img src="${answer}">`;
-        } else {
-          return answer;
+      <div class="accordion-body">
+        ${
+          answer.split(".").includes("png" || "jpg" || "jpeg")
+            ? `<img src="${answer}">`
+            : answer
         }
-      })}</div>
+  </div>
     </div>
   </div>`;
   }
